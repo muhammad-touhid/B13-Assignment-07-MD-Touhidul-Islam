@@ -20,6 +20,7 @@ const FriendData = () => {
             {friends.map((friend, id) => {
               return (
                 <Link
+                  to={`/friend/${friend.id}`}
                   key={id}
                   className="text-center shadow-custom rounded-lg py-6 bg-white"
                 >
