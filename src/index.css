@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.heading-custom-color {
+  color: #1f2937;
+}
+
+.btn-custom {
+  background-color: #244d3f;
+  color: white;
+}
+.badge-custom {
+  background-color: #244d3f;
+  color: white;
+}
+
+.shadow-custom {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+}
