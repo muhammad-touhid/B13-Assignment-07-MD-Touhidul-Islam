@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { TimelineContext } from "../../context/TimelineContext";
 import { PiPhoneCallBold, PiVideoCameraBold } from "react-icons/pi";
 import { MdOutlineTextsms } from "react-icons/md";
+import callImg from "../../assets/images/call.png";
+import textImg from "../../assets/images/text.png";
+import videoImg from "../../assets/images/video.png";
 
 const Timeline = () => {
   const { timelineData } = useContext(TimelineContext);
@@ -37,11 +40,11 @@ const Timeline = () => {
               <div className="flex items-center gap-3">
                 <div>
                   {activity.contactType == "call" ? (
-                    <PiPhoneCallBold size={30} />
+                    <img src={callImg} alt="call" />
                   ) : activity.contactType == "text" ? (
-                    <MdOutlineTextsms size={30} />
+                    <img src={textImg} alt="call" />
                   ) : (
-                    <PiVideoCameraBold size={30} />
+                    <img src={videoImg} alt="call" />
                   )}
                 </div>
                 <div>
