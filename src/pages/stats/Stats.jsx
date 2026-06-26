@@ -32,7 +32,7 @@ const Stats = () => {
   ];
   return (
     <div className="bg-[#F8FAFC]">
-      <div className="max-w-[1110px] m-auto py-20">
+      <div className="max-w-[1110px] m-auto py-20 px-5 lg:px-0">
         <div>
           <h1 className="text-5xl font-bold heading-custom-color my-6">
             Friendship Analytics

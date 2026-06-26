@@ -21,7 +21,7 @@ const Timeline = () => {
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
           >
-            <option value="all">All</option>
+            <option value="all">Filter Timeline</option>
             <option value="call">Call</option>
             <option value="text">Text</option>
             <option value="video">Video</option>

@@ -1,6 +1,13 @@
 import { FaPlus } from "react-icons/fa";
+import useFriendsData from "../../hooks/useFriendsData";
+import { useContext } from "react";
+import { TimelineContext } from "../../context/TimelineContext";
 
 const Banner = () => {
+  const { friends } = useFriendsData();
+  const onTracks = friends.filter((friend) => friend.status === "on-track");
+  const overdues = friends.filter((friend) => friend.status === "overdue");
+  const { timelineData } = useContext(TimelineContext);
   return (
     <div className="bg-[#F8FAFC]">
       <div className="max-w-[1110px] m-auto pt-20 border-b border-[#E9E9E9] px-5 lg:px-0">
@@ -20,19 +27,21 @@ const Banner = () => {
         </div>
         <div className="summary-cards grid grid-cols-2 lg:grid-cols-4 gap-6 my-8">
           <div className="bg-white shadow-custom rounded py-8 text-center">
-            <h3 className="text-3xl heading-custom-color">10</h3>
+            <h3 className="text-3xl heading-custom-color">{friends.length}</h3>
             <p className="text-gray-500 text-lg">Total Friends</p>
           </div>
           <div className="bg-white shadow-custom rounded py-8 text-center">
-            <h3 className="text-3xl heading-custom-color">3</h3>
+            <h3 className="text-3xl heading-custom-color">{onTracks.length}</h3>
             <p className="text-gray-500 text-lg">On Track</p>
           </div>
           <div className="bg-white shadow-custom rounded py-8 text-center">
-            <h3 className="text-3xl heading-custom-color">6</h3>
+            <h3 className="text-3xl heading-custom-color">{overdues.length}</h3>
             <p className="text-gray-500 text-lg">Need Attention</p>
           </div>
           <div className="bg-white shadow-custom rounded py-8 text-center">
-            <h3 className="text-3xl heading-custom-color">12</h3>
+            <h3 className="text-3xl heading-custom-color">
+              {timelineData.length}
+            </h3>
             <p className="text-gray-500 text-lg">Interactions This Month</p>
           </div>
         </div>
