@@ -8,14 +8,31 @@ import {
   PiVideoCameraBold,
 } from "react-icons/pi";
 import { MdOutlineTextsms } from "react-icons/md";
+import { useContext } from "react";
+import { TimelineContext } from "../../context/TimelineContext";
+import { toast } from "react-toastify";
 
 const FriendDetails = () => {
+  const { timelineData, setTimelineData } = useContext(TimelineContext);
   const { friends, loading } = useFriendsData();
   const { id } = useParams();
-  console.log(friends);
 
   const expectedFriend = friends.find((friend) => friend.id == id);
-  console.log(expectedFriend);
+
+  const handleTimelineData = (type) => {
+    setTimelineData([
+      ...timelineData,
+      {
+        ...expectedFriend,
+        contactType: type,
+        contactDate: new Date().toISOString(),
+      },
+    ]);
+
+    toast.success(`${type} with ${expectedFriend.name}`, {
+      position: "top-center",
+    });
+  };
 
   if (loading) {
     return (
@@ -103,15 +120,24 @@ const FriendDetails = () => {
           <div className="check-in bg-white rounded-lg shadow p-6">
             <p className="text-xl font-medium">Quick Check-In</p>
             <div className="flex gap-4 mt-4">
-              <div className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer">
+              <div
+                className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer"
+                onClick={() => handleTimelineData("call")}
+              >
                 <PiPhoneCallBold size={30} />
                 <p className="text-lg">Call</p>
               </div>
-              <div className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer">
+              <div
+                className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer"
+                onClick={() => handleTimelineData("text")}
+              >
                 <MdOutlineTextsms size={30} />
                 <p className="text-lg">Text</p>
               </div>
-              <div className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer">
+              <div
+                className="bg-[#F8FAFC] rounded-lg shadow flex-1 py-5 flex flex-col items-center gap-2 cursor-pointer"
+                onClick={() => handleTimelineData("video")}
+              >
                 <PiVideoCameraBold size={30} />
                 <p className="text-lg">Video</p>
               </div>
