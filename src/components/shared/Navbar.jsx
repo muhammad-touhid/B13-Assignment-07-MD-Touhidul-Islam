@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div>
       <div className=" bg-base-100 shadow-sm">
-        <div className="navbar max-w-350 mx-auto">
+        <div className="navbar max-w-350 mx-auto flex flex-col md:flex-row">
           <div className="flex-1">
             <Link to={"/"} className="btn btn-ghost text-xl">
               <img src={logoImg} alt="logo" />
