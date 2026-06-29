@@ -1,16 +1,26 @@
-# React + Vite
+## Project Name:
+# KeenKeeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
 
-Currently, two official plugins are available:
+KeenKeeper is a React-based friendship management application that helps users organize and track their connections. Users can add friends, log calls, texts and video interactions, filter activity through a timeline, and view engagement statistics with interactive charts powered by Recharts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technology
+1. React.js
+2. React Router DOM
+3. Tailwind CSS and DaisyUI
+4. ES6
+5. React-Toastify (NPM Package)
+6. JSON
+7. Recharts
 
-## React Compiler
+## Features:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Friend Management
+User can Add, organize, and manage your friends with an intuitive and user-friendly interface.
 
-## Expanding the ESLint configuration
+### Interaction Timeline
+User can keep a log and filter calls, texts, and video chats to keep a chronological record of all interactions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Analytics Dashboard
+Visualize communication patterns with interactive charts, making it easy to track engagement by interaction type.
