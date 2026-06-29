@@ -102,42 +102,48 @@ const Timeline = () => {
           </div>
         </div>
 
-        {displayedTimeline.map((activity, index) => {
-          return (
-            <div
-              key={index}
-              className="activity-div bg-white rounded shadow p-4 mb-6"
-            >
-              <div className="flex items-center gap-3">
-                <div>
-                  {activity.contactType == "call" ? (
-                    <img src={callImg} alt="call" />
-                  ) : activity.contactType == "text" ? (
-                    <img src={textImg} alt="call" />
-                  ) : (
-                    <img src={videoImg} alt="call" />
-                  )}
-                </div>
-                <div>
-                  <span className="text-xl font-medium capitalize">
-                    {activity.contactType}
-                  </span>
-                  <span className="text-lg text-gray-500">{` with ${activity.name}`}</span>
-                  <p className="text-gray-500">
-                    {new Date(activity.contactDate).toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      },
+        {displayedTimeline.length === 0 ? (
+          <p className="text-2xl text-center text-gray-500 py-10">
+            No data found.
+          </p>
+        ) : (
+          displayedTimeline.map((activity, index) => {
+            return (
+              <div
+                key={index}
+                className="activity-div bg-white rounded shadow p-4 mb-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div>
+                    {activity.contactType == "call" ? (
+                      <img src={callImg} alt="call" />
+                    ) : activity.contactType == "text" ? (
+                      <img src={textImg} alt="call" />
+                    ) : (
+                      <img src={videoImg} alt="call" />
                     )}
-                  </p>
+                  </div>
+                  <div>
+                    <span className="text-xl font-medium capitalize">
+                      {activity.contactType}
+                    </span>
+                    <span className="text-lg text-gray-500">{` with ${activity.name}`}</span>
+                    <p className="text-gray-500">
+                      {new Date(activity.contactDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        },
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </div>
   );

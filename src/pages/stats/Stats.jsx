@@ -42,38 +42,44 @@ const Stats = () => {
           <h4 className="text-xl font-medium text-gray-900">
             By Interaction Type
           </h4>
-          <div className="p-10">
-            <PieChart
-              style={{
-                width: "100%",
-                maxWidth: "350px",
-                maxHeight: "80vh",
-                margin: "auto",
-                aspectRatio: 1,
-              }}
-              responsive
-            >
-              <Pie
-                data={data}
-                innerRadius="80%"
-                outerRadius="100%"
-                // Corner radius is the rounded edge of each pie slice
-                cornerRadius="50%"
-                fill=""
-                // padding angle is the gap between each pie slice
-                paddingAngle={5}
-                dataKey="value"
-                isAnimationActive={true}
-              />
-              <Legend
-                verticalAlign="bottom"
-                wrapperStyle={{
-                  paddingTop: "20px",
+          {timelineData.length === 0 ? (
+            <p className="text-2xl text-center text-gray-500 py-10">
+              No data found.
+            </p>
+          ) : (
+            <div className="p-10">
+              <PieChart
+                style={{
+                  width: "100%",
+                  maxWidth: "350px",
+                  maxHeight: "80vh",
+                  margin: "auto",
+                  aspectRatio: 1,
                 }}
-              />
-              <Tooltip />
-            </PieChart>
-          </div>
+                responsive
+              >
+                <Pie
+                  data={data}
+                  innerRadius="80%"
+                  outerRadius="100%"
+                  // Corner radius is the rounded edge of each pie slice
+                  cornerRadius="50%"
+                  fill=""
+                  // padding angle is the gap between each pie slice
+                  paddingAngle={5}
+                  dataKey="value"
+                  isAnimationActive={true}
+                />
+                <Legend
+                  verticalAlign="bottom"
+                  wrapperStyle={{
+                    paddingTop: "20px",
+                  }}
+                />
+                <Tooltip />
+              </PieChart>
+            </div>
+          )}
         </div>
       </div>
     </div>
